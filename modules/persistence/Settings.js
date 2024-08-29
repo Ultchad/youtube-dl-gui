@@ -7,8 +7,8 @@ class Settings {
         paths, env, outputFormat, audioOutputFormat, downloadPath,
         proxy, rateLimit, autoFillClipboard, noPlaylist, globalShortcut, userAgent,
         validateCertificate, enableEncoding, taskList, nameFormat, nameFormatMode,
-        sizeMode, splitMode, maxConcurrent, retries, fileAccessRetries, updateBinary, downloadType, updateApplication, cookiePath,
-        statSend, sponsorblockMark, sponsorblockRemove, sponsorblockApi, downloadMetadata, downloadJsonMetadata,
+        sizeMode, splitMode, maxConcurrent, retries, fileAccessRetries, updateBinary, downloadType, updateApplication, cookiePath, 
+        cookiesFromBrowser, statSend, sponsorblockMark, sponsorblockRemove, sponsorblockApi, downloadMetadata, downloadJsonMetadata,
         downloadThumbnail, keepUnmerged, avoidFailingToSaveDuplicateFileName, calculateTotalSize, theme
     ) {
         this.paths = paths;
@@ -45,6 +45,7 @@ class Settings {
         this.downloadType = downloadType == null ? "video" : downloadType;
         this.updateApplication = updateApplication == null ? true : updateApplication;
         this.cookiePath = cookiePath;
+        this.cookiesFromBrowser = cookiesFromBrowser == null ? "none": cookiesFromBrowser;
         this.statSend = statSend == null ? false : statSend;
         this.theme = theme == null ? "dark" : theme;
         this.setGlobalShortcuts();
@@ -91,6 +92,7 @@ class Settings {
                 data.downloadType,
                 data.updateApplication,
                 data.cookiePath,
+                data.cookiesFromBrowser,
                 data.statSend,
                 data.sponsorblockMark,
                 data.sponsorblockRemove,
@@ -147,6 +149,7 @@ class Settings {
         this.downloadType = settings.downloadType;
         this.updateApplication = settings.updateApplication;
         this.theme = settings.theme;
+        this.cookiesFromBrowser = settings.cookiesFromBrowser
         this.save();
 
         //Prevent installing already downloaded updates on app close.
@@ -180,6 +183,7 @@ class Settings {
             downloadType: this.downloadType,
             updateApplication: this.updateApplication,
             cookiePath: this.cookiePath,
+            cookiesFromBrowser: this.cookiesFromBrowser,
             statSend: this.statSend,
             sponsorblockMark: this.sponsorblockMark,
             sponsorblockRemove: this.sponsorblockRemove,

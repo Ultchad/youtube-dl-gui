@@ -10,6 +10,7 @@ class Environment {
         this.app = app;
         this.version = app.getVersion();
         this.cookiePath = null;
+        this.cookiesFromBrowser = "none"
         this.mainAudioOnly = false;
         this.mainVideoOnly = false;
         this.mainAudioQuality = "best";

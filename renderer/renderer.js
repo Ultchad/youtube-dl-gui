@@ -242,6 +242,11 @@ async function init() {
         $('#fileInput').attr("title", "No file selected");
     })
 
+    $('#cookies-from-browser').on('change', async () => {        
+        sendSettings();
+        await getSettings();
+    });
+
     $('#infoModal .json').on('click', () => {
         window.main.invoke('videoAction', {action: "downloadInfo", identifier: $('#infoModal .identifier').html()});
     });
@@ -1012,6 +1017,7 @@ async function getSettings() {
     $('#splitMode').val(settings.splitMode);
     $('#theme').val(settings.theme);
     $('#version').html("<strong>Version: </strong>" + settings.version);
+    $('#cookies-from-browser').val(settings.cookiesFromBrowser);
     window.settings = settings;
 }
 
@@ -1047,7 +1053,8 @@ function sendSettings() {
         retries: $('#settingsModal #retries').val(),
         fileAccessRetries: $('#settingsModal #fileAccessRetries').val(),
         downloadType: $('#download-type').val(),
-        theme: $('#theme').val()
+        theme: $('#theme').val(),
+        cookiesFromBrowser: $('#cookies-from-browser').val()
     }
     window.settings = settings;
     window.main.invoke("settingsAction", {action: "save", settings});

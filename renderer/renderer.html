@@ -253,15 +253,30 @@
                 <button type="button" class="close dismiss" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body">
+                <h5 class="modal-title">Option 1</h5>
                 <p>Add a cookies.txt file to authenticate with.</p>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="fileInput">
                     <label id="fileInputLabel" class="custom-file-label" for="fileInput">Click to select cookies.txt</label>
                 </div>
                 <a target="_blank" href="https://github.com/StefanLobbenmeier/youtube-dl-gui/wiki/Tutorial:-Private-videos-&-playlists">What is a cookies.txt file?</a>
+                <hr>
+                <h5 class="modal-title">Option 2</h5>
+                <p>Cookies from selected browser to authenticate with.</p>
+                <select title="Cookies from browser" id="cookies-from-browser" class="custom-select w-auto rounded" aria-label="Cookies from selected browser to authenticate with">
+                    <option value="none" selected>None</option>
+                    <option value="brave">Brave</option>
+                    <option value="chrome">Chrome</option>
+                    <option value="chromium">Chromium</option>
+                    <option value="edge">Edge</option>
+                    <option value="firefox">Firefox</option>
+                    <option value="opera">Opera</option>
+                    <option value="safari">Safari</option>
+                    <option value="vivaldi">Vivaldi</option>
+                </select>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn removeCookies btn-dark">Remove cookies</button>
+                <button type="button" class="btn removeCookies btn-dark">Remove cookies.txt file</button>
                 <button type="button" class="btn dismiss btn-highlight">Ok</button>
             </div>
         </div>

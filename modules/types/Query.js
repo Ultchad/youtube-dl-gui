@@ -43,6 +43,13 @@ class Query {
             args.push(this.environment.settings.cookiePath);
         }
 
+        if(this.environment.settings.cookiesFromBrowser != null && this.environment.settings.cookiesFromBrowser != "none") {
+            args.push("--cookies-from-browser");
+            args.push(this.environment.settings.cookiesFromBrowser);
+        } else {
+            args.push("--no-cookies-from-browser");
+        }
+
         if(this.environment.settings.rateLimit !== "") {
             args.push("--limit-rate");
             args.push(this.environment.settings.rateLimit + "K");
@@ -65,6 +72,8 @@ class Query {
         if(cb == null) {
             //Return the data after the query has completed fully.
             try {
+                console.log("command: " + command)
+                console.log("args: " + args)
                 const {stdout} = await execa(command, args);
                 return stdout
             } catch(e) {
